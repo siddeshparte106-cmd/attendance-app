@@ -30,7 +30,7 @@ A full-stack Attendance Management System built using **React** for the frontend
 
 ## 📷 Screenshots
 
-*Add your project screenshots here*
+![Home](screenshots/home.png)
 
 ---
 
