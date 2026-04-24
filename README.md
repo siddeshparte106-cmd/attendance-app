@@ -1,6 +1,6 @@
-# 📊 Attendance Management System (React)
+# 📊 Attendance Management System (React + MongoDB)
 
-A modern Attendance Management System built using **React** to manage students, teachers, and track attendance with a clean and interactive admin dashboard.
+A full-stack Attendance Management System built using **React** for the frontend and **MongoDB** for data storage. This application helps manage students, teachers, and track attendance with a clean admin dashboard.
 
 ---
 
@@ -8,8 +8,8 @@ A modern Attendance Management System built using **React** to manage students, 
 
 * 👨‍🎓 Student Management (Add / View)
 * 👩‍🏫 Teacher Management
-* 🏫 Class & Subject Handling
-* 📅 Attendance Tracking
+* 🏫 Class & Subject Management
+* 📅 Attendance Tracking System
 * 📈 Dashboard Overview:
 
   * Total Students
@@ -22,59 +22,73 @@ A modern Attendance Management System built using **React** to manage students, 
 ## 🖥️ Tech Stack
 
 * **Frontend:** React.js, HTML, CSS, JavaScript
-* **State Management:** React Hooks
-* **Styling:** CSS / Tailwind 
-* **Backend:** Node.js
+* **Backend:** Node.js / Express.js *(update if used)*
 * **Database:** MongoDB
+* **API:** REST API
 
 ---
 
 ## 📷 Screenshots
 
-*Add your dashboard screenshot here*
+*Add your project screenshots here*
 
 ---
 
 ## ⚙️ How to Run Locally
 
-1. Clone the repository:
+### 1. Clone the repository
 
-   ```bash
-   git clone https://github.com/siddeshparte106-cmd/attendance-app.git
-   ```
+```bash
+git clone https://github.com/siddeshparte106-cmd/attendance-app.git
+```
 
-2. Navigate to project folder:
+### 2. Go to project folder
 
-   ```bash
-   cd attendance-app
-   ```
+```bash
+cd attendance-app
+```
 
-3. Install dependencies:
+### 3. Install frontend dependencies
 
-   ```bash
-   npm install
-   ```
+```bash
+npm install
+```
 
-4. Start the app:
+### 4. Start frontend
 
-   ```bash
-   npm start
-   ```
+```bash
+npm start
+```
 
-5. Open in browser:
+---
 
-   ```
-   http://localhost:3000
-   ```
+### 🔌 Backend Setup (if separate folder)
+
+```bash
+cd backend
+npm install
+npm start
+```
+
+---
+
+### 🗄️ MongoDB Setup
+
+* Create a MongoDB database (local or Atlas)
+* Add your connection string in `.env` file:
+
+```env
+MONGO_URI=your_mongodb_connection_string
+```
 
 ---
 
 ## 🧠 Future Improvements
 
-* 🔐 Authentication (Admin Login)
-* 🗄️ Backend Integration (Node.js / Firebase)
-* 📊 Charts & Analytics
-* 📱 Mobile Responsive Design
+* 🔐 Authentication (Login/Register)
+* 📊 Data visualization (charts)
+* 📱 Mobile responsiveness
+* ☁️ Deployment (Vercel + Render)
 
 ---
 
@@ -87,4 +101,4 @@ GitHub: https://github.com/siddeshparte106-cmd
 
 ## 📌 Note
 
-This project is built using React for learning and demonstration purposes.
+This project is built for learning and demonstration purposes using MERN stack concepts.
