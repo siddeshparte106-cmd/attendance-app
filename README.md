@@ -23,9 +23,9 @@ A modern Attendance Management System built using **React** to manage students, 
 
 * **Frontend:** React.js, HTML, CSS, JavaScript
 * **State Management:** React Hooks
-* **Styling:** CSS / Tailwind *(update if you used it)*
-* **Backend:** *(Add if you have one)*
-* **Database:** *(Add if used)*
+* **Styling:** CSS / Tailwind 
+* **Backend:** Node.js
+* **Database:** MongoDB
 
 ---
 
