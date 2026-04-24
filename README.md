@@ -78,7 +78,7 @@ npm start
 * Add your connection string in `.env` file:
 
 ```env
-MONGO_URI=your_mongodb_connection_string
+MONGO_URI=mongodb://127.0.0.1:27017/attendanceDB
 ```
 
 ---
