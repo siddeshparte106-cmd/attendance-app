@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import StudentData from '../display/StudentData';
 import UpdateForm from '../update/Student';
+import StudentForm from '../forms/RegistrationForm'
 
 
 export default function ParentStudent(){
@@ -19,6 +20,7 @@ export default function ParentStudent(){
     }
     return(
         <>
+        <StudentForm/>
         <StudentData data={Data} onEdit={setEdit} onDelete = {handledeleteFromUI} />
         <UpdateForm editItem = {edit} setEditItem={setEdit} setStudData = {Data} />
 

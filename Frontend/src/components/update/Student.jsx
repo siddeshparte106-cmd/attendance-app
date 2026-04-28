@@ -67,11 +67,32 @@ export default function Student({ editItem, setEditItem, setStudData }) {
       .catch((err) => console.log(err));
   };
 
+  //style
+    const buttonStyle = {
+    borderRadius: "4px",
+    border: "0",
+    color: "white",
+    padding: "10px",
+    justifyContent: "center",
+    alignItems: "center",
+    fontSize: "12px",
+    boxShadow: "0 4px 10px rgba(0,0,0,0.2)",
+    cursor: "pointer",
+    transition: "transform 0.2s ease",
+    margin:"10px"
+  };
+
+  const inputField = {
+    margin:"10px",
+    padding:"5px"
+  }
+
   return (
     <div>
       <h2>Update Student</h2>
 
       <input
+      style={inputField}
         name="first_name"
         value={studData.first_name}
         onChange={handleChange}
@@ -79,6 +100,7 @@ export default function Student({ editItem, setEditItem, setStudData }) {
       />
 
       <input
+      style={inputField}
         name="last_name"
         value={studData.last_name}
         onChange={handleChange}
@@ -86,6 +108,7 @@ export default function Student({ editItem, setEditItem, setStudData }) {
       />
 
       <input
+      style={inputField}
         name="email"
         value={studData.email}
         onChange={handleChange}
@@ -93,6 +116,7 @@ export default function Student({ editItem, setEditItem, setStudData }) {
       />
 
       <input
+      style={inputField}
         type="number"
         name="phone_no"
         value={studData.phone_no || ""}
@@ -101,6 +125,7 @@ export default function Student({ editItem, setEditItem, setStudData }) {
       />
 
       <input
+      style={inputField}
         type="date"
         name="dob"
         value={studData.dob}
@@ -168,8 +193,8 @@ export default function Student({ editItem, setEditItem, setStudData }) {
 
       <br />
 
-      <button onClick={handleUpdate}>SAVE</button>
-      <button onClick={() => setEditItem(null)}>CANCEL</button>
+      <button style={{...buttonStyle, background:" #16a34a"}} onClick={handleUpdate}>SAVE</button>
+      <button style={{...buttonStyle, background:"#6b7280"}} onClick={() => setEditItem(null)}>CANCEL</button>
     </div>
   );
 }

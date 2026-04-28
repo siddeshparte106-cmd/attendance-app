@@ -27,6 +27,22 @@ export default function StudentData({ data = [] , onDelete , onEdit}) {
     }).catch((err)=> console.log(err))
   };
 
+  //style
+  const buttonStyle = {
+    borderRadius: "4px",
+    border: "0",
+    color: "white",
+    padding: "10px",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    fontSize: "12px",
+    boxShadow: "0 4px 10px rgba(0,0,0,0.2)",
+    cursor: "pointer",
+    transition: "transform 0.2s ease",
+    margin:"5px",
+  };
+
   return (
     <>
       <h1>Student Data</h1>
@@ -66,8 +82,8 @@ export default function StudentData({ data = [] , onDelete , onEdit}) {
                   <td>{item.address}</td>
                   <td>{classItem ? classItem.class_name : "N/A"}</td>
                   <td>
-                    <button onClick={()=> handledelete(item._id)}>DELETE</button>
-                    <button onClick={()=> onEdit && onEdit(item)}>UPDATE</button>
+                    <button style={{...buttonStyle,background: "#dc2626"}} onClick={()=> handledelete(item._id)}>DELETE</button>
+                    <button style={{...buttonStyle,background:"#2563eb" }} onClick={()=> onEdit && onEdit(item)}>UPDATE</button>
                   </td>
                 </tr>
               );
