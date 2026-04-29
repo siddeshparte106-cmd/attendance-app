@@ -5,6 +5,42 @@ export default function AttendanceData({
   teachersData = [],
   classData = [],
 }) {
+    const handledelete = (id) => {
+    const confirmDelete = window.confirm("Are you sure you want to delete?");
+    if (!confirmDelete) return;
+
+    fetch(`http://localhost:3000/api/attendance/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error("Delete failed");
+        return res.json().catch(() => ({}));
+      })
+      .then(() => {
+        alert("Deleted successfully");
+        onDelete && onDelete(id);
+      })
+      .catch((err) => console.log(err));
+  };
+
+
+
+    // style 
+
+    const buttonStyle = {
+    borderRadius: "4px",
+    border: "0",
+    color: "white",
+    padding: "10px",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    fontSize: "12px",
+    boxShadow: "0 4px 10px rgba(0,0,0,0.2)",
+    cursor: "pointer",
+    transition: "transform 0.2s ease",
+    margin:"5px",
+  };
   return (
     <div>
       <h1>Attendance Data</h1>
@@ -60,7 +96,9 @@ export default function AttendanceData({
 
                   <td>{item.remark}</td>
                   <td>
-                    <button>Update</button>
+                    <button style={{...buttonStyle,background: "#dc2626"}} onClick={() => handledelete(item._id)}>
+                    DELETE
+                  </button>
                   </td>
                 </tr>
               );
