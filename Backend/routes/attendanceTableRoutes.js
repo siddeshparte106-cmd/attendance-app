@@ -90,4 +90,17 @@ router.put('/:id', async (req,res)=>{
     }
 })
 
+router.delete('/:id', async(req,res)=>{
+    try{
+        const newclass = await AttendanceTable.findByIdAndDelete(req.params.id)
+        if(!newclass){
+            res.status(404).json({message:"attendance record not exist"});
+        }else{
+            res.json(newclass)
+        }
+    }catch(err){
+        res.status(500).json({err:err.message});
+    }
+})
+
 module.exports = router;

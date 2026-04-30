@@ -102,3 +102,26 @@ GitHub: https://github.com/siddeshparte106-cmd
 ## 📌 Note
 
 This project is built for learning and demonstration purposes using MERN stack concepts.
+
+
+## 📌 Project Status
+
+This project is currently a work in progress.
+
+During development, I realized that the initial planning and data modeling needed improvement. Instead of continuing with a flawed structure, I decided to pause development and revisit the design.
+
+## 🧠 Learnings
+
+* Importance of proper planning before development
+* Designing a scalable data model
+* Handling bugs and restructuring code effectively
+
+## 🚀 Future Improvements
+
+* Redesign the database structure
+* Improve overall architecture
+* Fix existing bugs and optimize performance
+
+---
+
+**Note:** This project is part of my learning journey and will be improved further.
