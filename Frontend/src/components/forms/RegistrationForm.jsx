@@ -60,7 +60,7 @@ export default function RegistrationForm() {
           name="roll_number"
           value={studData.roll_number}
           onChange={handleChange}
-          placeholder="Enter Student name"
+          placeholder="Enter Student Roll no"
           required
         />
         <input

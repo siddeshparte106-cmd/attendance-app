@@ -1,33 +1,51 @@
 import { useEffect, useState } from "react";
 
 export default function AttendanceForm({
-  studData,
-  subjectData,
-  teachersData,
-  classData,
+  studData = [],
+  subjectData = [],
+  teachersData = [],
+  classData = [],
 }) {
-
   const [formData, setFormData] = useState({
     class_id: "",
+    division: "", // ✅ NEW
     subject_id: "",
     date: "",
     markedBy: "",
   });
 
-  
   const [students, setStudents] = useState([]);
 
+  // ✅ Filter students by class + division
   useEffect(() => {
-    const formatted = studData.map((item) => ({
-      student_id: item._id,
-      name: item.first_name + " " + item.last_name,
-      status: false,
-      remark: "",
-    }));
+    if (!formData.class_id) {
+      setStudents([]);
+      return;
+    }
 
-    setStudents(formatted);
-  }, [studData]);
+    const filtered = studData
+      .filter((item) => {
+        return (
+          item.class_id === formData.class_id &&
+          (formData.division
+            ? item.division === formData.division
+            : true)
+        );
+      })
+      .map((item) => ({
+        student_id: item._id,
+        name: item.first_name + " " + item.last_name,
+        status: false,
+        remark: "",
+      }));
 
+    setStudents(filtered);
+  }, [formData.class_id, formData.division, studData]);
+
+  // ✅ Filter subjects by class
+  const filteredSubjects = subjectData.filter(
+    (sub) => sub.class_id === formData.class_id
+  );
 
   const handleStatusChange = (index) => {
     const updated = [...students];
@@ -35,14 +53,12 @@ export default function AttendanceForm({
     setStudents(updated);
   };
 
-  
   const handleRemarkChange = (index, value) => {
     const updated = [...students];
     updated[index].remark = value;
     setStudents(updated);
   };
 
-  
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -55,7 +71,7 @@ export default function AttendanceForm({
       const res = await fetch("http://localhost:3000/api/attendance/", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json", 
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(payload),
       });
@@ -68,11 +84,13 @@ export default function AttendanceForm({
       // reset
       setFormData({
         class_id: "",
+        division: "",
         subject_id: "",
         date: "",
         markedBy: "",
       });
 
+      setStudents([]);
     } catch (err) {
       console.error(err);
     }
@@ -93,12 +111,17 @@ export default function AttendanceForm({
           }
         />
 
-    
+        {/* Class */}
         <select
           required
           value={formData.class_id}
           onChange={(e) =>
-            setFormData({ ...formData, class_id: e.target.value })
+            setFormData({
+              ...formData,
+              class_id: e.target.value,
+              division: "", // reset division
+              subject_id: "",
+            })
           }
         >
           <option value="">--select Class--</option>
@@ -109,22 +132,38 @@ export default function AttendanceForm({
           ))}
         </select>
 
-      
+        {/* ✅ Division */}
+        <select
+          value={formData.division}
+          onChange={(e) =>
+            setFormData({ ...formData, division: e.target.value })
+          }
+          disabled={!formData.class_id}
+        >
+          <option value="">All Divisions</option>
+          <option value="A">A</option>
+          <option value="B">B</option>
+          <option value="C">C</option>
+        </select>
+
+        {/* Subject */}
         <select
           required
           value={formData.subject_id}
           onChange={(e) =>
             setFormData({ ...formData, subject_id: e.target.value })
           }
+          disabled={!formData.class_id}
         >
           <option value="">--select Subject--</option>
-          {subjectData.map((item) => (
+          {filteredSubjects.map((item) => (
             <option key={item._id} value={item._id}>
               {item.subject_name}
             </option>
           ))}
         </select>
 
+        {/* Teacher */}
         <select
           required
           value={formData.markedBy}
@@ -140,6 +179,7 @@ export default function AttendanceForm({
           ))}
         </select>
 
+        {/* Students Table */}
         <table border="1" cellPadding="10">
           <thead>
             <tr>
@@ -177,7 +217,9 @@ export default function AttendanceForm({
             ) : (
               <tr>
                 <td colSpan="3" style={{ textAlign: "center" }}>
-                  No students found
+                  {formData.class_id
+                    ? "No students found"
+                    : "Please select class"}
                 </td>
               </tr>
             )}
@@ -190,4 +232,3 @@ export default function AttendanceForm({
     </div>
   );
 }
-
