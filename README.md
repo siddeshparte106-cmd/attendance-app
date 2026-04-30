@@ -1,6 +1,7 @@
-# 📊 Attendance Management System (React + MongoDB)
+# 📊 Attendance Management System (MERN Stack)
 
-A full-stack Attendance Management System built using **React** for the frontend and **MongoDB** for data storage. This application helps manage students, teachers, and track attendance with a clean admin dashboard.
+A full-stack Attendance Management System built using **React.js**, **Node.js**, and **MongoDB**.
+This application helps manage students, teachers, and track attendance through a clean admin dashboard.
 
 ---
 
@@ -9,7 +10,7 @@ A full-stack Attendance Management System built using **React** for the frontend
 * 👨‍🎓 Student Management (Add / View)
 * 👩‍🏫 Teacher Management
 * 🏫 Class & Subject Management
-* 📅 Attendance Tracking System
+* 📅 Attendance Tracking
 * 📈 Dashboard Overview:
 
   * Total Students
@@ -22,7 +23,7 @@ A full-stack Attendance Management System built using **React** for the frontend
 ## 🖥️ Tech Stack
 
 * **Frontend:** React.js, HTML, CSS, JavaScript
-* **Backend:** Node.js / Express.js *(update if used)*
+* **Backend:** Node.js, Express.js
 * **Database:** MongoDB
 * **API:** REST API
 
@@ -36,59 +37,66 @@ A full-stack Attendance Management System built using **React** for the frontend
 
 ## ⚙️ How to Run Locally
 
-### 1. Clone the repository
+### 1. Clone Repository
 
 ```bash
 git clone https://github.com/siddeshparte106-cmd/attendance-app.git
-```
-
-### 2. Go to project folder
-
-```bash
 cd attendance-app
 ```
 
-### 3. Install frontend dependencies
+### 2. Setup Backend
 
 ```bash
-npm install
-```
-
-### 4. Start frontend
-
-```bash
-npm start
-```
-
----
-
-### 🔌 Backend Setup (if separate folder)
-
-```bash
-cd backend
+cd Backend
 npm install
 npm start
 ```
 
+### 3. Setup Frontend
+
+```bash
+cd Frontend
+npm install
+npm run dev
+```
+
 ---
 
-### 🗄️ MongoDB Setup
+## 🗄️ Environment Variables
 
-* Create a MongoDB database (local or Atlas)
-* Add your connection string in `.env` file:
+Create a `.env` file in the backend folder:
 
 ```env
 MONGO_URI=mongodb://127.0.0.1:27017/attendanceDB
+PORT=3000
 ```
 
 ---
 
-## 🧠 Future Improvements
+## 📌 Project Status
+
+🚧 This project is currently a **work in progress**.
+
+During development, I identified improvements needed in the initial planning and data modeling. Development is paused to redesign the structure for better scalability and performance.
+
+---
+
+## 🧠 Key Learnings
+
+* Importance of proper project planning
+* Designing scalable database schemas
+* Handling bugs and refactoring code
+* Building REST APIs with structured data flow
+
+---
+
+## 🚀 Future Improvements
 
 * 🔐 Authentication (Login/Register)
-* 📊 Data visualization (charts)
+* 📊 Data visualization (charts & analytics)
 * 📱 Mobile responsiveness
 * ☁️ Deployment (Vercel + Render)
+* 🧩 Improved database design
 
 ---
 
@@ -99,29 +107,4 @@ GitHub: https://github.com/siddeshparte106-cmd
 
 ---
 
-## 📌 Note
-
-This project is built for learning and demonstration purposes using MERN stack concepts.
-
-
-## 📌 Project Status
-
-This project is currently a work in progress.
-
-During development, I realized that the initial planning and data modeling needed improvement. Instead of continuing with a flawed structure, I decided to pause development and revisit the design.
-
-## 🧠 Learnings
-
-* Importance of proper planning before development
-* Designing a scalable data model
-* Handling bugs and restructuring code effectively
-
-## 🚀 Future Improvements
-
-* Redesign the database structure
-* Improve overall architecture
-* Fix existing bugs and optimize performance
-
----
-
-**Note:** This project is part of my learning journey and will be improved further.
+⭐ This project is part of my learning journey and will be continuously improved.
